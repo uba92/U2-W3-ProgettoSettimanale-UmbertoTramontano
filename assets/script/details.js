@@ -65,7 +65,7 @@ fetch(API_URL + '/' + itemId, {
             >
               CLOSE
             </button>
-            <button type="button" class="btn btn-primary">DELETE</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">DELETE</button>
           </div>
         </div>
       </div>
@@ -87,7 +87,27 @@ const deleteItem = function () {
     .then((response) => {
       if (response.ok) {
         console.log('articolo eliminato')
-        window.location.assign('./index.html')
+        const newAlert = document.createElement('p')
+        const itemRow = document.getElementById('item-row')
+
+        const card = document.getElementsByClassName('card')[0]
+        card.classList.add('d-none')
+        newAlert.innerHTML = `
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col col-12">
+                        <div class="alert alert-primary text-center" role="alert">
+                            Back Home...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        itemRow.appendChild(newAlert)
+
+        setInterval(() => {
+          window.location.assign('./index.html')
+        }, 2000)
       } else {
         throw new Error('Errore nella rimozioine del prodotto')
       }

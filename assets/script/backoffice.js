@@ -53,6 +53,12 @@ addForm.addEventListener('submit', (e) => {
         inputBrand.value = ''
         inputImageUrl.value = ''
         inputPrice.value = ''
+
+        const alertSuccess = document.getElementById('success-alert')
+        alertSuccess.classList.remove('d-none')
+        setInterval(() => {
+          alertSuccess.classList.add('d-none')
+        }, 2000)
       } else {
         throw new Error('Errore nel salvataggio!')
       }

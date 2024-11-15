@@ -38,9 +38,38 @@ fetch(API_URL + '/' + itemId, {
                 <p class="card-text">${item.price}$</p>
                 
                 <a class="btn btn-outline-warning" href="./backoffice.html?itemId=${item._id}">MODIFICA</a>
-                <button class="btn btn-outline-danger" onclick="deleteItem()" >ELIMINA</button>
+                <button class="btn btn-outline-danger"  data-bs-toggle="modal" data-bs-target="#myModal">ELIMINA</button>
             </div>
         </div>
+
+        <div class="modal" tabindex="-1" id="myModal" onclick="deleteItem()">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">DELETE</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              CLOSE
+            </button>
+            <button type="button" class="btn btn-primary">DELETE</button>
+          </div>
+        </div>
+      </div>
+    </div>
     `
   })
   .catch((error) => {

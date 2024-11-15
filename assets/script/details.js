@@ -38,7 +38,7 @@ fetch(API_URL + '/' + itemId, {
                 <p class="card-text">${item.price}$</p>
                 
                 <a class="btn btn-outline-warning" href="./backoffice.html?itemId=${item._id}">MODIFICA</a>
-                <button class="btn btn-outline-danger" onclick="deleteItem()">ELIMINA</button>
+                <button class="btn btn-outline-danger" onclick="deleteItem()" >ELIMINA</button>
             </div>
         </div>
     `
